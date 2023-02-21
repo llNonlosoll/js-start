@@ -462,3 +462,135 @@ const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
 // console.log(formatTime(1441)); // "24:01"
 //----------------------------------------------------------------------27
 
+//----------------------------------------------------------------------28
+// Приклад рекурсії
+
+// function countup(n) {
+//     if (n < 1) {
+//       return [];
+//     } else {
+//   const countArray = countup(n - 1);
+//       countArray.push(n);
+//       return countArray;
+//     }
+//   }
+//   console.log(countup(5));
+//----------------------------------------------------------------------28
+
+//----------------------------------------------------------------------29
+// Комплексне завдання
+// Напиши скрипт управління особистим кабінетом інтернет банку. Є об'єкт account в якому необхідно реалізувати методи для роботи з балансом та історією транзакцій.
+
+// /*
+//  * Типів транзакцій всього два.
+//  * Можна покласти чи зняти гроші з рахунку.
+//  */
+// const Transaction = {
+//     DEPOSIT: 'deposit',
+//     WITHDRAW: 'withdraw',
+// };
+// Object.freeze(Transaction)
+// // Transaction.DEPOSIT = 'asdnasjkdnjasdjn'
+// // console.log(Transaction);
+// // /*
+// //  * Кожна транзакція це об'єкт із властивостями: id, type та amount
+// //  */
+
+// const account = {
+//     // Поточний баланс рахунку
+//     balance: 0,
+
+//     // Історія транзакцій
+//     transactions: [{
+//         id: 16,
+//         amount: 145,
+//         type: 'deposit'
+//     }, ],
+
+//     /*
+//      * Метод створює та повертає об'єкт транзакції.
+//      * Приймає суму та тип транзакції.
+//      */
+//     createTransaction(amount, type) {
+//         return {
+//             id: Date.now(),
+//             amount,
+//             type
+//         }
+//     },
+
+//     /*
+//      * Метод, що відповідає за додавання суми до балансу.
+//      * Приймає суму транзакції.
+//      * Викликає createTransaction для створення об'єкта транзакції
+//      * після чого додає його до історії транзакцій
+//      */
+//     deposit(amount) {
+//         if (amount <= 0) {
+//             return 'Error'
+//         }
+//         const item = this.createTransaction(amount, Transaction.DEPOSIT)
+//         this.balance += amount
+//         this.transactions.push(item)
+//     },
+
+//     /*
+//      * Метод, що відповідає за зняття суми з балансу.
+//      * Приймає суму транзакції.
+//      * Викликає createTransaction для створення об'єкта транзакції
+//      * після чого додає його до історії транзакцій.
+//      *
+//      * Якщо amount більше ніж поточний баланс, виводь повідомлення
+//      * про те, що зняття такої суми не можливе, недостатньо коштів.
+//      */
+//     withdraw(amount) {
+//         if (amount > this.balance || amount <= 0) {
+//             return 'недостатньо коштів';
+//         }
+//         const item = this.createTransaction(amount, Transaction.WITHDRAW)
+//         this.transactions.push(item);
+//         this.balance -= amount;
+
+//     },
+
+//     /*
+//      * Метод повертає поточний баланс
+//      */
+//     getBalance() {
+//         return this.balance
+//     },
+
+//     /*
+//      * Метод шукає та повертає об'єкт транзакції по id
+//      */
+//     getTransactionDetails(id) {
+//         for (const transaction of this.transactions) {
+//             if (transaction.id === id) {
+//                 return transaction
+//             }
+//         }
+//         return 'Empty';
+//     },
+
+//     /*
+//      * Метод повертає кількість коштів
+//      * певного типу транзакції з усієї історії транзакцій
+//      */
+//     getTransactionTotal(type) {
+//         let sum = 0;
+//         for (const transaction of this.transactions) {
+//             if (transaction.type === type) {
+//                 sum += transaction.amount
+//             }
+//         }
+
+//         return sum;
+//     },
+// };
+// account.deposit(1);
+// account.deposit(1231);
+// account.deposit(1431);
+// account.withdraw(123);
+// console.log(account.getTransactionTotal(Transaction.WITHDRAW));
+// console.log(account);
+//----------------------------------------------------------------------29
