@@ -594,3 +594,172 @@ const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
 // console.log(account.getTransactionTotal(Transaction.WITHDRAW));
 // console.log(account);
 //----------------------------------------------------------------------29
+
+//----------------------------------------------------------------------30
+// Перебери об'єкт apartment, використовуючи цикл for...in, і запиши в масив keys всі його ключі, а в масив values всі значення його властивостей
+// const apartment = {
+//   descr: 'Spacious apartment in the city center',
+//   rating: 4,
+//   price: 2153,
+// };
+// const keys = [];
+// const values = [];
+
+// for (const key in apartment) {
+//   keys.push(key);
+//   values.push(apartment[key]);
+// }
+// console.log(keys);
+// console.log(values);
+
+// Виконай рефакторинг рішення попереднього завдання, додавши в цикл for...in перевірку на власну властивість.
+// const keys = [];
+// const values = [];
+// const advert = {
+//   service: 'apt',
+// };
+
+// const apartment = Object.create(advert);
+// apartment.descr = 'Spacious apartment in the city center';
+// apartment.rating = 4;
+// apartment.price = 2153;
+
+// for (const key in apartment) {
+//   if (apartment.hasOwnProperty(key)) {
+//     keys.push(key);
+//     values.push(apartment[key]);
+//   }
+// }
+
+// console.log(keys);
+// console.log(values);
+//----------------------------------------------------------------------30
+
+//----------------------------------------------------------------------31
+// Функція підраховує кількість власних властивостей та повертає їх значення
+// function countProps(object) {
+//   let propCount = 0;
+//   for (const key in object) {
+//     if (object.hasOwnProperty(key)) {
+//       propCount += 1;
+//     }
+//   }
+//   return propCount;
+// }
+
+// console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }));
+
+// Те саме за допомогою for..of
+// function countProps(object) {
+//   let propCount = 0;
+
+//   const keys = Object.keys(object);
+//   for (const key of keys) {
+//     propCount += 1;
+//   }
+
+//   return propCount;
+// }
+
+// console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }));
+//----------------------------------------------------------------------31
+
+//----------------------------------------------------------------------32
+// Перебір об'єкт за допомогою for..of та повернення в новий масив значення ключей
+// const apartment = {
+//   descr: 'Spacious apartment in the city center',
+//   rating: 4,
+//   price: 2153,
+// };
+// const values = [];
+// const keys = Object.keys(apartment);
+
+// for (const key of keys) {
+//   values.push(apartment[key]);
+// }
+
+// console.log(values);
+//----------------------------------------------------------------------32
+
+//----------------------------------------------------------------------33
+// Функція підраховує суму значень властивостей об'єкту
+// function countTotalSalary(salaries) {
+//   let totalSalary = 0;
+
+//   const values = Object.values(salaries);
+
+//   for (const value of values) {
+//     totalSalary += value;
+//   }
+//   return totalSalary;
+// }
+
+// console.log(countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 }));
+//----------------------------------------------------------------------33
+
+//----------------------------------------------------------------------34
+// Перебір масиву об'єктів
+// const colors = [
+//   { hex: '#f44336', rgb: '244,67,54' },
+//   { hex: '#2196f3', rgb: '33,150,243' },
+//   { hex: '#4caf50', rgb: '76,175,80' },
+//   { hex: '#ffeb3b', rgb: '255,235,59' },
+// ];
+
+// const hexColors = [];
+// const rgbColors = [];
+
+// for (const color of colors) {
+//   hexColors.push(color.hex);
+//   rgbColors.push(color.rgb);
+// }
+
+// console.log(hexColors);
+// console.log(rgbColors);
+//----------------------------------------------------------------------34
+
+//----------------------------------------------------------------------35
+// Функція перевіряє наявність товару, та повертає його вартість
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// function getProductPrice(productName) {
+//   for (const product of products) {
+//     if (product.name === productName) {
+//       return product.price;
+//     }
+//   }
+//   return null;
+// }
+
+// console.log(getProductPrice('Doid'));
+//----------------------------------------------------------------------35
+
+//----------------------------------------------------------------------36
+// Функція повертає масив всіх значень заданої властивості. Якщо в об'єктах відсутні властивості з таким ім'ям, функція повертає порожній масив
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// function getAllPropValues(propName) {
+//   let propNameValue = [];
+
+//   for (const product of products) {
+//     for (const key in product) {
+//       if (key === propName) {
+//         propNameValue.push(product[key]);
+//       }
+//     }
+//   }
+//   return propNameValue;
+// }
+
+// console.log(getAllPropValues('name'));
+//----------------------------------------------------------------------36
