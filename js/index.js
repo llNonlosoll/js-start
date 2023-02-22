@@ -762,4 +762,18 @@ const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
 // }
 
 // console.log(getAllPropValues('name'));
+
+// Те саме з hasOwnProperty
+// function getAllPropValues(propName) {
+//   let propNameValue = [];
+
+//   for (const product of products) {
+//     if (product.hasOwnProperty(propName)) {
+//       propNameValue.push(product[propName]);
+//     }
+//   }
+//   return propNameValue;
+// }
+
+// console.log(getAllPropValues('name'));
 //----------------------------------------------------------------------36
