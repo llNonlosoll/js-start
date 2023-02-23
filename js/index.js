@@ -221,7 +221,7 @@
 // addCourse(name) - додає курс до кінця колекції
 // removeCourse(name) - видаляє курс із колекції
 // updateCourse(oldName, newName) - змінює ім'я на нове
-const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
+// const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
 
 // function addCourse(course) {
 //     if (courses.includes(course)) {
@@ -777,3 +777,334 @@ const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
 
 // console.log(getAllPropValues('name'));
 //----------------------------------------------------------------------36
+
+//----------------------------------------------------------------------37
+// Функція для генерації випадкового ID
+// function generateId() {
+//   return '_' + Math.random().toString(36).substr(2, 9);
+// }
+//----------------------------------------------------------------------37
+
+//----------------------------------------------------------------------38
+// Функція для відображення контакту з телефоном
+// function printContactsInfo(names, phones) {
+//   const nameList = names.split(',');
+//   const phoneList = phones.split(',');
+//   for (let i = 0; i < names.length; i++) {
+//     console.log(`${nameList}: ${phoneList}`);
+//   }
+// }
+// printContactsInfo(
+//   'Jacob,William,Solomon,Artemis',
+//   '89001234567,89001234568,89001234569,89001234561',
+// );
+//----------------------------------------------------------------------38
+
+//----------------------------------------------------------------------39
+// Функція transformUsername(user) повертає новий об'єкт із властивістю fullName, замість firstName та lastName.
+
+// function transformUsername({ firstName, lastName, ...props }) {
+//   return {
+//     fullName: `${firstName} ${lastName}`,
+//     ...props,
+//   };
+// }
+
+// console.log(
+//   transformUsername({
+//     id: 1,
+//     firstName: 'Jacob',
+//     lastName: 'Mercer',
+//     email: 'j.mercer@mail.com',
+//     friendCount: 40,
+//   }),
+// );
+//----------------------------------------------------------------------39
+
+//----------------------------------------------------------------------40
+// Функція приймає один параметр productName - назва товару. Якщо товар є в наявності повертає загальну вартість (ціна * кількість).
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// function calculateTotalPrice(productName) {
+//   for (const product of products) {
+//     const values = Object.values(product);
+//     for (const value of values) {
+//       if (value === productName) {
+//         return product.price * product.quantity;
+//       }
+//     }
+//   }
+//   return 0;
+// }
+
+// Те саме з деструктуризацією
+// function calculateTotalPrice(productName) {
+//   for (const { name, price, quantity } of products) {
+//     if (name === productName) {
+//       return price * quantity;
+//     }
+//   }
+
+//   return 0;
+// }
+
+// console.log(calculateTotalPrice('Grip'));
+//----------------------------------------------------------------------40
+
+//----------------------------------------------------------------------41
+// Синтаксис деструктуризації в функції, з визначенням параметрів за замовченням
+// function foo({ name = 'No name', car: { bmw = 'None' } = {} } = {}) {
+//   console.log(name, bmw);
+// }
+
+// foo({
+//   name: 'User1',
+//   language: 'html',
+//   car: {
+//     audi: 'A6',
+//     bmw: 'X5',
+//   },
+// });
+
+// foo({
+//   name: 'User2',
+//   language: 'html',
+// });
+
+// foo();
+
+// Або так
+// function calculateMeanTemperature(forecast) {
+//   const {
+//     today: { low: todayLow, high: todayHigh },
+//     tomorrow: { low: tomorrowLow, high: tomorrowHigh },
+//   } = forecast;
+
+//   return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+// }
+
+// console.log(
+//   calculateMeanTemperature({ today: { low: 28, high: 32 }, tomorrow: { low: 25, high: 29 } }),
+// );
+
+// Або так
+// function calculateMeanTemperature({
+//   today: { low: todayLow, high: todayHigh },
+//   tomorrow: { low: tomorrowLow, high: tomorrowHigh },
+// }) {
+//   return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+// }
+
+// console.log(
+//   calculateMeanTemperature({ today: { low: 28, high: 32 }, tomorrow: { low: 25, high: 29 } }),
+// );
+//----------------------------------------------------------------------41
+
+//----------------------------------------------------------------------42
+// Приклад spread
+// const firstGroupScores = [64, 42, 93];
+// const secondGroupScores = [89, 14, 51, 26];
+// const thirdGroupScores = [29, 47, 18, 97, 81];
+
+// const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
+// const bestScore = Math.max(...allScores);
+// const worstScore = Math.min(...allScores);
+//----------------------------------------------------------------------42
+
+//----------------------------------------------------------------------43
+// Функція поєднання масивів
+// function makeTask(data) {
+//   const completed = false;
+//   const category = 'General';
+//   const priority = 'Normal';
+
+//   const dataObj = { completed, category, priority };
+//   return { ...dataObj, ...data };
+// }
+
+// console.log(makeTask({ category: 'Finance', text: 'Take interest' }));
+//----------------------------------------------------------------------43
+
+//----------------------------------------------------------------------44
+// Функція приклад rest яка рахую сумму всіх чисел, які більше за перше числоі
+// function addOverNum(firstNumber, ...args) {
+//   let total = 0;
+
+//   for (const arg of args) {
+//     if (arg > firstNumber) {
+//       total += arg;
+//     }
+//   }
+
+//   return total;
+// }
+
+// console.log(addOverNum(10, 12, 4, 11, 48, 10, 8));
+//----------------------------------------------------------------------44
+
+//----------------------------------------------------------------------45
+// Функція порівняння;
+// function findMatches(array, ...array1) {
+//   const matches = [];
+
+//   for (const arr of array) {
+//     for (const arr1 of array1) {
+//       if (arr === arr1) {
+//         matches.push(arr1);
+//       }
+//     }
+//   }
+
+//   return matches;
+// }
+
+// console.log(findMatches([10, 24, 41, 6, 9, 19], 24, 11, 9, 23, 41));
+//----------------------------------------------------------------------45
+//----------------------------------------------------------------------46
+// Методи об'єкта
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+
+//   getPotions() {
+//     return this.potions;
+//   },
+//   addPotion(newPotion) {
+//     if (this.potions.includes(newPotion)) {
+//       return `Error! Potion ${newPotion} is already in your inventory!`;
+//     }
+
+//     this.potions.push(newPotion);
+//   },
+//   removePotion(potionName) {
+//     const potionIndex = this.potions.indexOf(potionName);
+
+//     if (potionIndex === -1) {
+//       return `Potion ${potionName} is not in inventory!`;
+//     }
+
+//     this.potions.splice(potionIndex, 1);
+//   },
+//   updatePotionName(oldName, newName) {
+//     const potionIndex = this.potions.indexOf(oldName);
+
+//     if (potionIndex === -1) {
+//       return `Potion ${oldName} is not in inventory!`;
+//     }
+
+//     this.potions.splice(potionIndex, 1, newName);
+//   },
+// };
+
+// Методи об'єкта з масивом об'єктів 1 варіант
+
+// const atTheOldToad = {
+//   potions: [
+//     { name: 'Speed potion', price: 460 },
+//     { name: 'Dragon breath', price: 780 },
+//     { name: 'Stone skin', price: 520 },
+//   ],
+
+//   getPotions() {
+//     return this.potions;
+//   },
+
+//   addPotion(newPotion) {
+//     for (const potion of this.potions) {
+//       const values = Object.values(potion);
+
+//       for (const value of values) {
+//         if (value === newPotion.name) {
+//           return `Error! Potion ${newPotion.name} is already in your inventory!`;
+//         }
+//       }
+//     }
+
+//     this.potions.push(newPotion);
+//   },
+
+//   removePotion(potionName) {
+//     for (const potion of this.potions) {
+//       const values = Object.values(potion);
+
+//       for (const value of values) {
+//         if (value === potionName) {
+//           this.potions.splice(this.potions.indexOf(potion), 1);
+//           return `Potion ${potionName} was deleted`;
+//         }
+//       }
+//     }
+//     return `Potion ${potionName} is not in inventory!`;
+//   },
+
+//   updatePotionName(oldName, newName) {
+//     for (const potion of this.potions) {
+//       const values = Object.values(potion);
+
+//       for (let value of values) {
+//         if (value === oldName) {
+//           potion.name = newName;
+//           return `Potion ${oldName} was changet to ${newName}`;
+//         }
+//       }
+//     }
+//     return `Potion ${oldName} is not in inventory!`;
+//   },
+// };
+
+// console.log(atTheOldToad.addPotion({ name: 'Stone skin', price: 240 }));
+// console.log(atTheOldToad.removePotion('Dragon breath'));
+// console.log(atTheOldToad.updatePotionName('Dragon breath', 'Polymorth'));
+// console.log(atTheOldToad.getPotions());
+
+// Методи об'єкта з масивом об'єктів 2 варіант
+// const atTheOldToad = {
+//   potions: [
+//     { name: 'Speed potion', price: 460 },
+//     { name: 'Dragon breath', price: 780 },
+//     { name: 'Stone skin', price: 520 },
+//   ],
+
+//   getPotions() {
+//     return this.potions;
+//   },
+
+//   addPotion(newPotion) {
+//     for (const { name } of this.potions) {
+//       if (name === newPotion.name) {
+//         return `Error! Potion ${newPotion.name} is already in your inventory!`;
+//       }
+//     }
+//     this.potions.push(newPotion);
+//   },
+
+//   removePotion(potionName) {
+//     for (const potion of this.potions) {
+//       if (potion.name === potionName) {
+//         this.potions.splice(this.potions.indexOf(potion), 1);
+//         return `Potion ${potionName} was deleted`;
+//       }
+//     }
+//     return `Potion ${potionName} is not in inventory!`;
+//   },
+
+//   updatePotionName(oldName, newName) {
+//     for (const potion of this.potions) {
+//       if (potion.name === oldName) {
+//         potion.name = newName;
+//         return `Potion ${oldName} was changet to ${newName}`;
+//       }
+//     }
+//     return `Potion ${oldName} is not in inventory!`;
+//   },
+// };
+
+// console.log(atTheOldToad.addPotion({ name: 'Stone skin', price: 240 }));
+// console.log(atTheOldToad.removePotion('Dragon breath'));
+// console.log(atTheOldToad.updatePotionName('Dragon breath', 'Polymorth'));
+// console.log(atTheOldToad.getPotions());
+//----------------------------------------------------------------------46
