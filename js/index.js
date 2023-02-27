@@ -965,6 +965,7 @@
 
 // console.log(findMatches([10, 24, 41, 6, 9, 19], 24, 11, 9, 23, 41));
 //----------------------------------------------------------------------45
+
 //----------------------------------------------------------------------46
 // Методи об'єкта
 // const atTheOldToad = {
@@ -1108,105 +1109,3 @@
 // console.log(atTheOldToad.updatePotionName('Dragon breath', 'Polymorth'));
 // console.log(atTheOldToad.getPotions());
 //----------------------------------------------------------------------46
-
-//----------------------------------------------------------------------47
-// CALLBACK
-// function processCall(recipient, onAvailable, onNotAvailable) {
-//   // Імітуємо доступність абонента випадковим числом
-//   const isRecipientAvailable = Math.random() > 0.5;
-
-//   if (!isRecipientAvailable) {
-//     onNotAvailable(recipient);
-//     return;
-//   }
-
-//   onAvailable(recipient);
-// }
-
-// function takeCall(name) {
-//   console.log(`З'єднуємо з ${name}, очікуйте...`);
-//   // Логіка прийняття дзвінка
-// }
-
-// function activateAnsweringMachine(name) {
-//   console.log(`Абонент ${name} недоступний, залиште повідомлення.`);
-//   // Логіка активації автовідповідача
-// }
-
-// function leaveHoloMessage(name) {
-//   console.log(`Абонент ${name} недоступний, записуємо голограму.`);
-//   // Логіка запису голограми
-// }
-
-// processCall('Манго', takeCall, activateAnsweringMachine);
-// processCall('Полі', takeCall, leaveHoloMessage);
-//----------------------------------------------------------------------47
-
-//----------------------------------------------------------------------48
-// REDUCE
-// const tweets = [
-//   { id: '000', likes: 5, tags: ['js', 'nodejs'] },
-//   { id: '001', likes: 2, tags: ['html', 'css'] },
-//   { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
-//   { id: '003', likes: 8, tags: ['css', 'react'] },
-//   { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
-// ];
-
-// // Пройдемо по всіх елементах колекції і додамо значення властивості likes
-// // до акумулятора, початкове значення якого вкажемо 0.
-// const likes = tweets.reduce((totalLikes, tweet) => totalLikes + tweet.likes, 0);
-
-// console.log(likes); // 32
-
-// // Мабуть, підрахунок лайків - не одиночна операція, тому напишемо функцію
-// // для підрахунку лайків з колекції
-// const countLikes = tweets => {
-//   return tweets.reduce((totalLikes, tweet) => totalLikes + tweet.likes, 0);
-// };
-
-// console.log(countLikes(tweets)); // 32
-
-// // Пройдемо по всіх елементах колекції і додамо значення властивості tags
-// // до акумулятора, початкове значення якого вкажемо порожнім масивом [].
-// // На кожній ітерації пушимо в акумулятор усі елементи tweet.tags і повертаємо його.
-// const tags = tweets.reduce((allTags, tweet) => {
-//   allTags.push(...tweet.tags);
-
-//   return allTags;
-// }, []);
-
-// console.log(tags);
-
-// // Мабуть, збирання тегів - не одиночна операція, тому напишемо функцію
-// // для збирання тегів з колекції
-// const getTags = tweets =>
-//   tweets.reduce((allTags, tweet) => {
-//     allTags.push(...tweet.tags);
-
-//     return allTags;
-//   }, []);
-
-// console.log(getTags(tweets));
-
-// // Винесемо callback-функцію окремо, а в reducе передамо посилання на неї.
-// // Це стандартна практика, якщо callback-функція досить велика.
-
-// // Якщо в об'єкті-акумуляторі acc відсутня своя властивість з ключем tag,
-// // то створюємо її і записуємо їй значення 0.
-// // В іншому випадку збільшуємо значення на 1.
-// const getTagStats = (acc, tag) => {
-//   if (!acc.hasOwnProperty(tag)) {
-//     acc[tag] = 0;
-//   }
-
-//   acc[tag] += 1;
-
-//   return acc;
-// };
-
-// // Початкове значення акумулятора - це порожній об'єкт {}
-// const countTags = tags => tags.reduce(getTagStats, {});
-
-// const tagCount = countTags(tags);
-// console.log(tagCount);
-//----------------------------------------------------------------------48
