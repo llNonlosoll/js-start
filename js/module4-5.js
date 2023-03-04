@@ -393,7 +393,6 @@
 //   0,
 // );
 // //gamesPlayed = 1 default value на випадок, якщо не буде вказано
-
 // console.log(totalAveragePlaytimePerGame);
 
 // reduce2
@@ -430,8 +429,25 @@
 // const getTotalFriendCount = users => {
 //   return users.reduce((total, user) => total + user.friends.length, 0);
 // };
-
 // console.log(getTotalFriendCount(users));
+
+// Цікавий reduce
+// const str = 'asdaskfjnaskjfnmaeklsmflasfasdsapoldwa';
+// const obj = abc => {
+//   return [...abc].reduce((acc, item) => {
+//     acc.hasOwnProperty(item) ? (acc[item] += 1) : (acc[item] = 1);
+//     return acc;
+//   }, {});
+// };
+// console.log(obj(str));
+
+// Цікавий reduce в інший спосіб
+// const str = 'asdaskfjnaskjfnmaeklsmflasfasdsapoldwa';
+// const obj = str.split('').reduce((acc, item) => {
+//   acc.hasOwnProperty(item) ? (acc[item] += 1) : (acc[item] = 1);
+//   return acc;
+// }, {});
+// console.log(obj);
 //----------------------------------------------------------------------12
 
 //----------------------------------------------------------------------13
