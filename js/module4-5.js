@@ -668,3 +668,354 @@
 
 // console.log(getTotalBalanceByGender(users, 'female'));
 //----------------------------------------------------------------------14
+
+//----------------------------------------------------------------------15
+// Приклад прототипного наслідування
+// const ancestor = {
+//   name: "Paul",
+//   age: 83,
+//   surname: "Dawson",
+//   heritage: "Irish",
+// };
+
+// const parent = Object.create(ancestor);
+// parent.name = "Stacey";
+// parent.surname = "Moore";
+// parent.age = 54;
+
+// const child = Object.create(parent);
+// child.name = "Jason";
+// child.age = 27;
+//----------------------------------------------------------------------15
+
+//----------------------------------------------------------------------16
+// Приклад створення класу
+// class Car {
+//   constructor({ brand, model, price }) {
+//     this.brand = brand;
+//     this.model = model;
+//     this.price = price;
+//   }
+
+//   getPrice() {
+//     return this.price;
+//   }
+
+//   changePrice(newPrice) {
+//     return (this.price = newPrice);
+//   }
+// }
+
+// Приклад створення класу2
+// class Storage {
+//   constructor(items) {
+//     this.items = items;
+//   }
+
+//   getItems() {
+//     return this.items;
+//   }
+
+//   addItem(newItem) {
+//     return this.items.push(newItem);
+//   }
+
+//   removeItem(itemToRemove) {
+//     this.items.forEach((item, index, array) => {
+//       item === itemToRemove ? array.splice(index, 1) : 0;
+//     });
+//   }
+// }
+
+// const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+
+// console.log(storage);
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+// storage.addItem('Droid');
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+// storage.removeItem('Prolonger');
+// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+// Приклад створення класу3
+// class StringBuilder {
+//   constructor(value) {
+//     this.value = value;
+//     console.log(typeof value);
+//   }
+
+//   getValue() {
+//     return this.value;
+//   }
+
+//   padStart(str) {
+//     this.value = this.value.padStart(this.value.length + 1, str);
+//   }
+
+//   padEnd(str) {
+//     this.value = this.value.padEnd(this.value.length + 1, str);
+//   }
+
+//   padBoth(str) {
+//     this.value = this.value.padStart(this.value.length + 1, str);
+//     this.value = this.value.padEnd(this.value.length + 1, str);
+//   }
+// }
+
+// const builder = new StringBuilder('.');
+// console.log(builder.getValue()); // "."
+// builder.padStart('^');
+// console.log(builder.getValue()); // "^."
+// builder.padEnd('^');
+// console.log(builder.getValue()); // "^.^"
+// builder.padBoth('=');
+// console.log(builder.getValue()); // "=^.^="
+
+// Приклад створення класу3 - 2 варіант
+// class StringBuilder {
+
+//   constructor(initialValue) {
+//     this.value = initialValue;
+//   }
+
+//   getValue() {
+//     return this.value;
+//   }
+
+//   padEnd(str) {
+//     this.value += str;
+//   }
+
+//   padStart(str) {
+//     this.value = str + this.value;
+//   }
+
+//   padBoth(str) {
+//     this.padStart(str);
+//     this.padEnd(str);
+//   }
+// }
+
+// const builder = new StringBuilder('.');
+// console.log(builder.getValue()); // "."
+// builder.padStart('^');
+// console.log(builder.getValue()); // "^."
+// builder.padEnd('^');
+// console.log(builder.getValue()); // "^.^"
+// builder.padBoth('=');
+// console.log(builder.getValue()); // "=^.^="
+//----------------------------------------------------------------------16
+
+//----------------------------------------------------------------------17
+// Приватні властивості
+// class Car {
+//   #brand;
+
+//   constructor({ brand, model, price }) {
+//     this.#brand = brand;
+//     this.model = model;
+//     this.price = price;
+//   }
+
+//   getBrand() {
+//     return this.#brand;
+//   }
+
+//   changeBrand(newBrand) {
+//     this.#brand = newBrand;
+//   }
+// }
+// const car = new Car({ brand: 'bmw', model: 'X5', price: 58900 });
+// console.log(car);
+//----------------------------------------------------------------------17
+
+//----------------------------------------------------------------------18
+// GET & SET
+// class Car {
+//   #brand;
+//   #model;
+//   #price;
+
+//   constructor({ brand, model, price }) {
+//     this.#brand = brand;
+//     this.#model = model;
+//     this.#price = price;
+//   }
+
+//   get brand() {
+//     return this.#brand;
+//   }
+
+//   set brand(newBrand) {
+//     this.#brand = newBrand;
+//   }
+
+//   get model() {
+//     return this.#model;
+//   }
+
+//   set model(newModel) {
+//     this.#model = newModel;
+//   }
+
+//   get price() {
+//     return this.#price;
+//   }
+
+//   set price(newPrice) {
+//     this.#price = newPrice;
+//   }
+// }
+//----------------------------------------------------------------------18
+
+//----------------------------------------------------------------------19
+// Static
+// class Car {
+//   #price;
+//   static MAX_PRICE = 50000;
+
+//   constructor({ price }) {
+//     this.#price = price;
+//   }
+
+//   get price() {
+//     return this.#price;
+//   }
+
+//   set price(newPrice) {
+//     newPrice < Car.MAX_PRICE ? (this.#price = newPrice) : this.#price;
+//   }
+// }
+
+// const audi = new Car({ price: 35000 });
+// console.log(audi.price); // 35000
+
+// audi.price = 49000;
+// console.log(audi.price); // 49000
+
+// audi.price = 51000;
+// console.log(audi.price); // 49000
+//----------------------------------------------------------------------19
+
+//----------------------------------------------------------------------20
+// Static method
+// class Car {
+//   static #MAX_PRICE = 50000;
+
+//   static checkPrice(price) {
+//     return this.#MAX_PRICE >= price
+//       ? 'Success! Price is within acceptable limits'
+//       : 'Error! Price exceeds the maximum';
+//   }
+
+//   constructor({ price }) {
+//     this.price = price;
+//   }
+// }
+
+// const audi = new Car({ price: 36000 });
+// const bmw = new Car({ price: 64000 });
+
+// console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+// console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+//----------------------------------------------------------------------20
+
+//----------------------------------------------------------------------21
+// Extends
+// class User {
+//   email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+
+// class Admin extends User {
+//   static AccessLevel = {
+//     BASIC: 'basic',
+//     SUPERUSER: 'superuser',
+//   };
+
+//   constructor({ email, accessLevel }) {
+//     super(email);
+//     this.accessLevel = accessLevel;
+//     this.blacklistedEmails = [];
+//   }
+
+//   blacklist(email) {
+//     this.blacklistedEmails.push(email);
+//   }
+
+//   isBlacklisted(email) {
+//     return this.blacklistedEmails.includes(email);
+//   }
+// }
+
+// const mango = new Admin({
+//   email: 'mango@mail.com',
+//   accessLevel: Admin.AccessLevel.SUPERUSER,
+// });
+
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.accessLevel); // "superuser"
+
+// mango.blacklist('poly@mail.com');
+// console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+// console.log(mango.isBlacklisted('mango@mail.com')); // false
+// console.log(mango.isBlacklisted('poly@mail.com')); // true
+//----------------------------------------------------------------------21
+
+//----------------------------------------------------------------------22
+
+// - Отсортировать ученых по количеству прожитых лет.
+// - Удалить из массива ученых, родившихся в 15, 16 или 17 веках.
+// - Найти ученого, который родился позже всех.
+// - Найти год рождения Albert Einstein.
+// - Найти ученых, фамилия которых начинается на букву "С".
+// - Удалить из массива всех ученых, имя которых начинается на букву "A".
+// - Найти ученого, который прожил больше всех и ученого, который меньше.
+// - Найти ученых, у которых совпадают первые буквы имени и фамилии.
+// - Узнать, все ли ученые работали в 19 веке.
+
+const scientists = [
+  { name: 'Albert', surname: 'Einstein', born: 1879, dead: 1955, id: 1 },
+  { name: 'Isaac', surname: 'Newton', born: 1643, dead: 1727, id: 2 },
+  { name: 'Galileo', surname: 'Galilei', born: 1564, dead: 1642, id: 3 },
+  { name: 'Marie', surname: 'Curie', born: 1867, dead: 1934, id: 4 },
+  { name: 'Pierre', surname: 'Curie', born: 1859, dead: 1906, id: 5 },
+  { name: 'Johannes', surname: 'Kepler', born: 1571, dead: 1630, id: 6 },
+  { name: 'Nicolaus', surname: 'Copernicus', born: 1473, dead: 1543, id: 7 },
+  { name: 'Max', surname: 'Planck', born: 1858, dead: 1947, id: 8 },
+  { name: 'Katherine', surname: 'Blodgett', born: 1898, dead: 1979, id: 9 },
+  { name: 'Ada', surname: 'Lovelace', born: 1815, dead: 1852, id: 10 },
+  { name: 'Sarah E.', surname: 'Goode', born: 1855, dead: 1905, id: 11 },
+];
+
+// - Получить массив ученых, родившихся в 19 веке.
+// const wasBorn = scientists => {
+//   return scientists.filter(person => person.born >= 1800 && person.born <= 1899);
+// };
+// console.log(wasBorn(scientists));
+
+// - Найти общую сумму лет, сколько прожили все ученые.
+// const lives = scientists =>
+//   scientists
+//     .map(scientist => scientist.dead - scientist.born)
+//     .reduce((acc, ages) => {
+//       acc += ages;
+//       return acc;
+//     }, 0);
+// console.log(lives(scientists));
+
+// - Отсортировать ученых по алфавиту.
+// const abcScientists = scientists =>
+//   scientists.sort(({ name: a }, { name: b }) => a.localeCompare(b));
+// console.log(abcScientists(scientists));
+//----------------------------------------------------------------------22
