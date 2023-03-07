@@ -1019,3 +1019,30 @@ const scientists = [
 //   scientists.sort(({ name: a }, { name: b }) => a.localeCompare(b));
 // console.log(abcScientists(scientists));
 //----------------------------------------------------------------------22
+
+//----------------------------------------------------------------------23
+// Рекурсія
+// function countdown(n) {
+//   if (n < 1) {
+//     return [];
+//   } else {
+//     const countArray = countdown(n - 1);
+//     countArray.unshift(n);
+//     return countArray;
+//   }
+// }
+// console.log(countdown(10));
+
+// Рекурсія2
+// function rangeOfNumbers(startNum, endNum) {
+//   let n = endNum;
+//   if (n < startNum) {
+//     return [];
+//   } else {
+//     const countArray = rangeOfNumbers(startNum, endNum - 1);
+//     countArray.push(n);
+//     return countArray;
+//   }
+// }
+// console.log(rangeOfNumbers(6, 9));
+//----------------------------------------------------------------------23
