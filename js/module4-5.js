@@ -803,6 +803,45 @@
 // console.log(builder.getValue()); // "^.^"
 // builder.padBoth('=');
 // console.log(builder.getValue()); // "=^.^="
+
+// Приклад створення класу4
+// class User {
+//   static counter = 0;
+//   static addUser() {
+//     // User.counter +=1;
+//     this.counter += 1;
+//     console.log(`Number of users ${this.counter}`);
+//   }
+//   #location;
+//   constructor({ name, email, age = 18, location = 'World', password } = {}) {
+//     this.name = name;
+//     this.email = email;
+//     this.age = age;
+//     this.#location = location;
+//     this.password = password;
+//     User.addUser();
+//   }
+//   sayHello() {
+//     console.log(this.name);
+//   }
+
+//   #getEmail() {
+//     console.log(this.email);
+//   }
+//   get locale() {
+//     return this.#location;
+//   }
+//   set locale(city) {
+//     const value = prompt('Enter password');
+//     this.#getEmail();
+//     if (value === this.password) {
+//       this.#location = city;
+//       console.log(this.#location);
+//     } else {
+//       console.log('Хацкер ? 😱');
+//     }
+//   }
+// }
 //----------------------------------------------------------------------16
 
 //----------------------------------------------------------------------17
@@ -1046,3 +1085,22 @@ const scientists = [
 // }
 // console.log(rangeOfNumbers(6, 9));
 //----------------------------------------------------------------------23
+
+//----------------------------------------------------------------------24
+// Самостійне опрацювання
+// Напишіть клас Toggle який приймає об'єкт налаштувань {isOpen: boolean} і оголошує одну властивість on - стан вкл/викл (true/false). За замовчуванням значення властивості on повинно бути false.
+
+// const firstToggle = new Toggle({ isOpen: true });
+// console.group('firstToggle');
+// console.log(firstToggle.on);
+// firstToggle.toggle();
+// console.log(firstToggle.on);
+// console.groupEnd('firstToggle');
+
+// const secondToggle = new Toggle();
+// console.group('secondToggle');
+// console.log(secondToggle.on);
+// secondToggle.toggle();
+// console.log(secondToggle.on);
+// console.groupEnd('secondToggle');
+//----------------------------------------------------------------------24
